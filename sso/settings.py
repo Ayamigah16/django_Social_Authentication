@@ -40,6 +40,8 @@ INSTALLED_APPS = [
 
     'django.contrib.sites',
 
+    'crispy_forms',
+
     'allauth',
     'allauth.account',
 
@@ -69,7 +71,7 @@ ROOT_URLCONF = 'sso.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -161,4 +163,9 @@ SOCIALACCOUNT_PROVIDERS = {
         },
         'OAUTH_PKCE_ENABLED': True,
     }
-}
+} 
+
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'login'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
